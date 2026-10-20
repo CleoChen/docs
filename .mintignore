@@ -1,7 +1,6 @@
-# Mintlify automatically ignores these files and directories:
-# .git, .github, .claude, .agents, .idea, node_modules,
-# README.md, LICENSE.md, CHANGELOG.md, CONTRIBUTING.md
+# Product prototypes and their source files are not documentation pages.
+automation-demo/
 
-# Draft content
-drafts/
-*.draft.mdx
+# Internal planning documents should not be published as hidden pages.
+Automation-Phase-1-Roadmap.md
+PRD-Automation-Details.md
