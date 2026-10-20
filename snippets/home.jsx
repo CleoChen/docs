@@ -16,11 +16,11 @@ export const Home = ({ t, arts, hot, journeys, searchItems = arts, locale = "cn"
         openMenu: "Open navigation menu",
         clearSearch: "Clear search",
         quickStart: "Quick start",
-        journeyTitle: "Follow the path to the answer you need",
+        journeyTitle: "Good emails start here.",
         journeyDescription: "Move from setup to performance analysis with task-based guides.",
         viewGuide: "View guide",
         developerAccess: "Developer access",
-        developerTitle: "Choose the integration that fits your workflow",
+        developerTitle: "Build your own way.",
         developerDescription: "Build with the Open API or let AI assistants query Sendify data securely through MCP.",
         apiDescription: "Use a Bearer API Key to automate campaigns and contact workflows.",
         apiLink: "View API docs",
@@ -203,17 +203,13 @@ export const Home = ({ t, arts, hot, journeys, searchItems = arts, locale = "cn"
   );
 
   const renderHelpVisual = () => (
-    <div className="dt-home-help-visual" aria-hidden="true">
-      <div className="dt-home-help-sheet dt-home-help-sheet-back" />
-      <div className="dt-home-help-sheet">
-        <span className="dt-home-help-mark">?</span>
-        <div className="dt-home-help-lines">
-          <i />
-          <i />
-          <i />
-        </div>
-        <span className="dt-home-help-check">✓</span>
-      </div>
+    <div className="intl-orbit" aria-hidden="true">
+      <div className="intl-orbit-ring" /><div className="intl-orbit-ring intl-orbit-ring-inner" />
+      <div className="intl-orbit-core"><svg viewBox="0 0 80 80" fill="none"><path d="M12 21h56v38H12z" stroke="currentColor" strokeWidth="3"/><path d="m12 21 28 23 28-23" stroke="currentColor" strokeWidth="3"/></svg></div>
+      <span className="intl-orbit-label intl-orbit-label-one">Create <b>✦</b></span>
+      <span className="intl-orbit-label intl-orbit-label-two">Connect <b>↗</b></span>
+      <span className="intl-orbit-label intl-orbit-label-three">Grow <b>✓</b></span>
+      <span className="intl-orbit-note">YOUR NEXT GREAT SEND<br />STARTS HERE.</span>
     </div>
   );
 
@@ -221,8 +217,8 @@ export const Home = ({ t, arts, hot, journeys, searchItems = arts, locale = "cn"
     <main className="dt-home-hero">
       <div className="dt-home-hero-grid dt-home-wrap">
         <div className="dt-home-hero-copy">
-          <span className="dt-home-eyebrow"><i /> Sendify {ui.helpCenter}</span>
-          <h1>{t.title}</h1>
+          <span className="dt-home-eyebrow"><i /> THE SENDIFY HELP CENTER</span>
+          <h1>{isEnglish ? <>A little guidance.<br /><em>A lot more possibility.</em></> : t.title}</h1>
           <p>{t.subtitle}</p>
 
           <form
@@ -251,7 +247,7 @@ export const Home = ({ t, arts, hot, journeys, searchItems = arts, locale = "cn"
                 if (event.key === "Escape") applySearchQuery("", true);
               }}
             />
-            <button id="home-search-submit" type="submit" disabled>
+            <button id="home-search-submit" type="submit" aria-label={t.search_btn} disabled>
               <span>{t.search_btn}</span>
               <ArrowIcon />
             </button>
@@ -382,10 +378,10 @@ export const Home = ({ t, arts, hot, journeys, searchItems = arts, locale = "cn"
             <h2>{t.sup_title}</h2>
             <p>{t.sup_sub}</p>
           </div>
-          <div className="dt-home-support-email" aria-label={`${ui.supportEmail}: ${supportEmail}`}>
+          <a className="dt-home-support-email" href={supportMail} aria-label={`${ui.supportEmail}: ${supportEmail}`}>
             <span>{ui.supportEmail}</span>
-            <strong>{supportEmail}</strong>
-          </div>
+            <strong>{supportEmail} <span aria-hidden="true">↗</span></strong>
+          </a>
         </div>
       </div>
     </section>
@@ -416,24 +412,13 @@ export const Home = ({ t, arts, hot, journeys, searchItems = arts, locale = "cn"
       </div>
       <div className="dt-home-wrap dt-home-footer-bottom">
         <span>{ui.footerCopyright(currentYear)}</span>
-        <span className="dt-home-footer-filings">
-          <a
-            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33011002018233"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            浙公网安备 33011002018233号
-          </a>
-          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
-            浙ICP备18037475号-53
-          </a>
-        </span>
+
       </div>
     </footer>
   );
 
   return (
-    <div className="dt-home">
+    <div className="dt-home dt-intl">
       {renderHeader()}
       {renderHero()}
       {renderJourneys()}
